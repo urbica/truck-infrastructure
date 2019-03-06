@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+
+  truck-db:
+    container_name: truck-db
+    image: registry.gitlab.com/mofoyoda/docker-debian-gisdb:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ../data:/data
+      - ../data/pgdata:/var/lib/postgresql/data/pgdata
+    ports:
+      - 45432:5432
+    networks:
+      - truck
+
+  truck-osm:
+    container_name: truck-osm
+    image: registry.gitlab.com/urbica/dt/mcm/alpine-osm:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ../data/osm:/data
+      - ./cron:/etc/cron.d
+    networks:
+      - truck
+
+  truck-martin:
+    container_name: truck-martin
+    image: urbica/martin
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - truck
+
+networks:
+  truck:
+    external: true
+  proxy:
+    external: true
