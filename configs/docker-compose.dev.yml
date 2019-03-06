@@ -4,11 +4,12 @@ services:
 
   truck-db:
     container_name: truck-db
-    image: registry.gitlab.com/mofoyoda/docker-debian-gisdb:latest
+    image: registry.gitlab.com/mofoyoda/docker-debian-gisdb/debian-gisdb:latest
     restart: unless-stopped
     env_file:
-      - .env
+      - ../.env
     volumes:
+      - ../data:/data
       - ../data/pgdata:/var/lib/postgresql/data/pgdata
     ports:
       - 45432:5432
@@ -20,11 +21,12 @@ services:
     image: registry.gitlab.com/urbica/mapbox/truck/docker-alpine-osm/alpine-osm:latest
     restart: unless-stopped
     env_file:
-      - .env
+      - ../.env
     volumes:
       - ../data/osm:/data
       - ./cron:/etc/cron.d
-      - ../scripts:/scripts
+      - ../scripts/osm/docker-entry.sh:/docker-entry.sh
+      - ../scripts/osm/docker-cmd.sh:/docker-cmd.sh
     networks:
       - truck
 
@@ -33,7 +35,7 @@ services:
     image: urbica/martin
     restart: unless-stopped
     env_file:
-      - .env
+      - ../.env
     networks:
       - truck
 
