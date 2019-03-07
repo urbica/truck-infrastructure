@@ -18,12 +18,13 @@ services:
 
   truck-osm:
     container_name: truck-osm
-    image: registry.gitlab.com/urbica/mapbox/truck/docker-alpine-osm/alpine-osm:latest
+    image: registry.gitlab.com/urbica/dt/mcm/docker-alpine-osm:latest
     restart: unless-stopped
     env_file:
       - ../.env
     volumes:
       - ../data/osm:/data
+      - ../configs/osm2pgsql:/configs/osm2pgsql
       - ./cron:/etc/cron.d
       - ../scripts/osm/docker-entry.sh:/docker-entry.sh
       - ../scripts/osm/docker-cmd.sh:/docker-cmd.sh
