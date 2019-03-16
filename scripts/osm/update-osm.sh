@@ -5,12 +5,16 @@ chmod 600 /.pgpass
 export PGPASSFILE='/.pgpass'
 
 echo 'Updating local OSM extract...'
-osmupdate -v ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE} ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE}
+osmupdate -v ${OSM_DATA_PATH}/${OSM_CURRENT} ${OSM_DATA_PATH}/${OSM_NEXT}
 echo 'Updated'
 
 echo 'Extracting from updated OSM extract...'
-osmium extract -v --overwrite -s smart -p ${OSM_DATA_PATH}/${OSMIUM_BOUNDARY_FILE} -o ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE_CUT} ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE}
+osmium extract -v --overwrite -s smart -p ${OSM_DATA_PATH}/${OSMIUM_BOUNDARY_FILE} -o ${OSM_DATA_PATH}/${OSM_NEXT_CUT} ${OSM_DATA_PATH}/${OSM_NEXT}
 echo 'Extracted'
+
+echo 'Filtering OSM extract by tags'
+osmium tags-filter -v -o ${OSM_DATA_PATH}/${OSM_NEXT_CUT_FILTERED} ${OSM_DATA_PATH}/${OSM_NEXT_CUT} /highway /bridge /maxheight /maxweight /hgv
+echo 'Filtered'
 
 echo 'Creating a diff file from new extract and old extract'
 osmium derive-changes -v --overwrite ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE} ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE_CUT} -o ${OSM_DATA_PATH}/${OSM_CHANGES_FILE}
@@ -32,17 +36,9 @@ echo 'refreshing MGK matviews...'
 psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/refresh_matviews.sql
 echo 'refreshed'
 
-echo 'refreshing poi table...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/refresh_poi_raw.sql
-echo 'refreshed'
-
 echo 'updating calendar...'
 psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/update_calendar.sql
 echo 'updated'
-
-echo 'refreshing newlist...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/refresh_newlist.sql
-echo 'refreshed'
 
 echo 'cleanup...'
 mv ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE} ${OSM_DATA_PATH}/${OSM_EXTRACT_PREVIOUS_FILE}

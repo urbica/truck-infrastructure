@@ -11,6 +11,7 @@ services:
     volumes:
       - ../data:/data
       - ../data/pgdata:/var/lib/postgresql/data/pgdata
+      - ./postgresql:/pg_config
     ports:
       - 45432:5432
     networks:
