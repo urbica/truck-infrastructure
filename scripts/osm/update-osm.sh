@@ -4,47 +4,48 @@ echo ${POSTGRES_HOST}:${POSTGRES_PORT}:${POSTGRES_DB}:${POSTGRES_USER}:${POSTGRE
 chmod 600 /.pgpass
 export PGPASSFILE='/.pgpass'
 
-echo 'Updating local OSM extract...'
-osmupdate -v ${OSM_DATA_PATH}/${OSM_CURRENT} ${OSM_DATA_PATH}/${OSM_NEXT}
-echo 'Updated'
+echo 'Renaming ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} to ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ...'
+mv ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS}
+echo 'Renamed'
 
-echo 'Extracting from updated OSM extract...'
-osmium extract -v --overwrite -s smart -p ${OSM_DATA_PATH}/${OSMIUM_BOUNDARY_FILE} -o ${OSM_DATA_PATH}/${OSM_NEXT_CUT} ${OSM_DATA_PATH}/${OSM_NEXT}
+echo 'Renaming ${OSM_DATA_PATH}/${PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_DIFF_PREVIOUS} ...'
+mv ${OSM_DATA_PATH}/${PLANET_DIFF} ${OSM_DATA_PATH}/${OSM_PLANET_DIFF_PREVIOUS}
+echo 'Renamed'
+
+echo 'Fetching ${OSM_DATA_PATH}/${OSM_PLANET_DIFF}...'
+osmupdate -v ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_DIFF}
+echo 'Fetched'
+
+echo 'Applying ${OSM_DATA_PATH}/${OSM_PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ...'
+osmium apply-changes -v -o ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_DIFF}
+echo 'Applied'
+
+echo 'Extracting ${OSM_DATA_PATH}/${OSM_USA} from ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ...'
+osmium extract -v --overwrite -s smart -p ${OSMIUM_BOUNDARY_PATH}/${OSMIUM_BOUNDARY_FILE} -o ${OSM_DATA_PATH}/${OSM_USA} ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT}
 echo 'Extracted'
 
-echo 'Filtering OSM extract by tags'
-osmium tags-filter -v -o ${OSM_DATA_PATH}/${OSM_NEXT_CUT_FILTERED} ${OSM_DATA_PATH}/${OSM_NEXT_CUT} /highway /bridge /maxheight /maxweight /hgv
+echo 'Filtering ${OSM_DATA_PATH}/${OSM_USA} by tags ${OSM_TAGS_TO_FILTER} ...'
+osmium tags-filter -v -o ${OSM_DATA_PATH}/${OSM_USA_FILTERED} ${OSM_DATA_PATH}/${OSM_USA} ${OSM_TAGS_TO_FILTER}
 echo 'Filtered'
 
-echo 'Creating a diff file from new extract and old extract'
-osmium derive-changes -v --overwrite ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE} ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE_CUT} -o ${OSM_DATA_PATH}/${OSM_CHANGES_FILE}
-echo 'Created a diff file'
+echo 'Importing ${OSM_DATA_PATH}/${OSM_USA_FILTERED} to database ${POSTGRES_DB}'
+osm2pgsql --create --database ${POSTGRES_DB} --merc --slim --style ${OSM2PGSQL_STYLE_PATH}/${OSM2PGSQL_STYLE} --cache ${OSM2PGSQL_CACHE_SIZE} --username ${POSTGRES_USER} --host ${POSTGRES_HOST} --port ${POSTGRES_PORT} --extra-attributes --hstore-all --multi-geometry --verbose --prefix ${OSM2PGSQL_PREFIX} ${OSM_DATA_PATH}/${OSM_USA_FILTERED}
+echo 'Imported'
 
-echo 'Updating database with diff file'
-osm2pgsql --append --database ${POSTGRES_DB} --merc --slim --style ${OSM_SH_PATH}/${OSM2PGSQL_STYLE} --cache ${OSM2PGSQL_CACHE_SIZE} --username ${POSTGRES_USER} --host ${POSTGRES_HOST} --port ${POSTGRES_PORT} --extra-attributes --hstore-all --multi-geometry --verbose --prefix ${OSM2PGSQL_PREFIX} ${OSM_DATA_PATH}/${OSM_CHANGES_FILE}
-echo 'Database updated'
+echo 'Deleting ${OSM_DATA_PATH}/${OSM_USA_PREVIOUS}'
+rm -f ${OSM_DATA_PATH}/${OSM_USA_PREVIOUS}
+echo 'Deleted'
 
-echo 'Reindexing OSM tables...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/reindex_osm_tables.sql
-echo 'Reindexed'
+echo 'Deleting ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS}'
+rm -f ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS}
+echo 'Deleted'
 
-echo 'adding new record to calendar...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/add_to_calendar.sql
-echo 'added'
+echo 'Renaming ${OSM_DATA_PATH}/${OSM_USA} to ${OSM_DATA_PATH}/${OSM_USA_PREVIOUS}'
+mv ${OSM_DATA_PATH}/${OSM_USA} ${OSM_DATA_PATH}/${OSM_USA_PREVIOUS}
+echo 'Renamed'
 
-echo 'refreshing MGK matviews...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/refresh_matviews.sql
-echo 'refreshed'
+echo 'Renaming ${OSM_DATA_PATH}/${OSM_USA_FILTERED} to ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS}'
+mv ${OSM_DATA_PATH}/${OSM_USA_FILTERED} ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS}
+echo 'Renamed'
 
-echo 'updating calendar...'
-psql --echo-all -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f $OSM_SQL_PATH/update_calendar.sql
-echo 'updated'
-
-echo 'cleanup...'
-mv ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE} ${OSM_DATA_PATH}/${OSM_EXTRACT_PREVIOUS_FILE}
-mv ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE_CUT} ${OSM_DATA_PATH}/${OSM_EXTRACT_FILE}
-mv ${OSM_DATA_PATH}/${OSM_CHANGES_FILE} ${OSM_DATA_PATH}/${OSM_CHANGES_PREVIOUS_FILE}
-rm ${OSM_DATA_PATH}/${OSM_EXTRACT_NEXT_FILE}
-echo 'cleaned'
-
-echo 'OSM import finished'
+echo 'Finished updating'
