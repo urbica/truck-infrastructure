@@ -14,7 +14,7 @@ echo "Renamed"
 
 echo "Updating ${OSM_DATA_PATH}/${OSM_PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ..."
 osmupdate -v ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT}
-echo "Fetched"
+echo "Updated"
 
 #echo "Applying ${OSM_DATA_PATH}/${OSM_PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ..."
 #osmium apply-changes -v -o ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_DIFF}
@@ -47,5 +47,17 @@ echo "Renamed"
 echo "Renaming ${OSM_DATA_PATH}/${OSM_USA_FILTERED} to ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS} ..."
 mv ${OSM_DATA_PATH}/${OSM_USA_FILTERED} ${OSM_DATA_PATH}/${OSM_USA_FILTERED_PREVIOUS}
 echo "Renamed"
+
+echo "Renaming indexes in DB"
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f ${OSM_SCRIPTS_PATH}/rename_indexes.sql
+echo "Renamed"
+
+echo "Creating new tables in DB"
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f ${OSM_SCRIPTS_PATH}/create_new_tables.sql
+echo "Created"
+
+echo "Switching to new tables in DB"
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB} -U ${POSTGRES_USER} -f ${OSM_SCRIPTS_PATH}/switch_tables.sql
+echo "Switched"
 
 echo "Finished updating"

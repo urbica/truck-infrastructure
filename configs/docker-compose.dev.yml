@@ -25,11 +25,11 @@ services:
       - ../.env
     volumes:
       - ../data/osm:/data
+      - ../scripts/osm:/scripts
       - ../configs/osm2pgsql:/configs/osm2pgsql
       - ./cron:/etc/cron.d
       - ../scripts/osm/docker-entry.sh:/docker-entry.sh
       - ../scripts/osm/docker-cmd.sh:/docker-cmd.sh
-      - ../scripts/osm/update-osm.sh:/update-osm.sh
     networks:
       - truck
 
