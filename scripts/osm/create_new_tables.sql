@@ -51,17 +51,17 @@ SELECT
 FROM osm_line
 WHERE
 	(
-					tags->'bridge'='yes'
-			OR
-					util.parse_osm_layer(tags->'layer', tags->'level') > 1
-		)
+		tags->'bridge'='yes'
+		OR
+		util.parse_osm_layer(tags->'layer', tags->'level') > 1
+	)
 	AND tags->'highway' NOT IN ('footway', 'path', 'proposed')
 ;
 CREATE INDEX idx_bridges_new_geom ON bridges_new USING GIST(geom);
 ANALYSE bridges_new;
 
 DROP TABLE IF EXISTS under_bridges_new;
-CREATE TABLE under_bridges AS
+CREATE TABLE under_bridges_new AS
 SELECT DISTINCT ON (l.osm_id)
 		'way/' || l.osm_id::TEXT AS osm_id,
 		l.tags->'highway' AS highway,
