@@ -1,9 +1,0 @@
-ALTER INDEX idx_truck_restrictions_new_geom RENAME TO idx_truck_restrictions_bak_geom;
-ALTER INDEX idx_truck_restrictions_pnt_new_geom RENAME TO idx_truck_restrictions_pnt_bak_geom;
-ALTER INDEX idx_bridges_new_geom RENAME TO idx_bridges_bak_geom;
-ALTER INDEX idx_under_bridges_new_geom RENAME TO idx_under_bridges_bak_geom;
-
-
-
-
-

@@ -1,15 +1,24 @@
 BEGIN TRANSACTION;
 
-ALTER TABLE truck_restrictions RENAME TO truck_restrictions_bak;
-ALTER TABLE truck_restrictions_new RENAME TO truck_restrictions;
+DROP TABLE IF EXISTS bak.truck_restrictions;
+ALTER TABLE public.truck_restrictions SET SCHEMA bak;
+ALTER TABLE newer.truck_restrictions SET SCHEMA public;
 
-ALTER TABLE truck_restrictions_pnt RENAME TO truck_restrictions_pnt_bak;
-ALTER TABLE truck_restrictions_pnt_new RENAME TO truck_restrictions_pnt;
+DROP TABLE IF EXISTS bak.truck_restrictions_pnt;
+ALTER TABLE public.truck_restrictions_pnt SET SCHEMA bak;
+ALTER TABLE newer.truck_restrictions_pnt SET SCHEMA public;
 
-ALTER TABLE bridges RENAME TO bridges_bak;
-ALTER TABLE bridges_new RENAME TO bridges;
+DROP TABLE IF EXISTS bak.bridges;
+ALTER TABLE public.bridges SET SCHEMA bak;
+ALTER TABLE newer.bridges SET SCHEMA public;
 
-ALTER TABLE under_bridges RENAME TO under_bridges_bak;
-ALTER TABLE under_bridges_new RENAME TO under_bridges;
+DROP TABLE IF EXISTS bak.under_bridges;
+ALTER TABLE public.under_bridges SET SCHEMA bak;
+ALTER TABLE newer.under_bridges SET SCHEMA public;
 
 END TRANSACTION;
+
+
+
+
+

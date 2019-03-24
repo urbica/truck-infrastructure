@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS truck_restrictions_new;
-CREATE TABLE truck_restrictions_new AS
+DROP TABLE IF EXISTS newer.truck_restrictions;
+CREATE TABLE newer.truck_restrictions AS
 SELECT
 		'way/' || osm_id::TEXT AS osm_id,
 		tags->'highway' AS highway,
@@ -14,11 +14,11 @@ WHERE
 	 OR tags?'maxweight'
 	 OR tags->'hgv'='no'
 ;
-CREATE INDEX idx_truck_restrictions_new_geom ON truck_restrictions_new USING GIST (geom);
-ANALYSE truck_restrictions_new;
+CREATE INDEX idx_truck_restrictions_geom ON newer.truck_restrictions USING GIST (geom);
+ANALYSE newer.truck_restrictions;
 
-DROP TABLE IF EXISTS truck_restrictions_pnt_new;
-CREATE TABLE truck_restrictions_pnt_new AS
+DROP TABLE IF EXISTS newer.truck_restrictions_pnt;
+CREATE TABLE newer.truck_restrictions_pnt AS
 SELECT
 		'node/' || osm_id::TEXT AS osm_id,
 		tags->'highway' AS highway,
@@ -33,11 +33,11 @@ WHERE
 	 OR tags?'maxweight'
 	 OR tags->'hgv'='no'
 ;
-CREATE INDEX idx_truck_restrictions_pnt_new_geom ON truck_restrictions_pnt_new USING GIST (geom);
-ANALYSE truck_restrictions_pnt_new;
+CREATE INDEX idx_truck_restrictions_pnt_geom ON newer.truck_restrictions_pnt USING GIST (geom);
+ANALYSE newer.truck_restrictions_pnt;
 
-DROP TABLE IF EXISTS bridges_new;
-CREATE TABLE bridges_new AS
+DROP TABLE IF EXISTS newer.bridges;
+CREATE TABLE newer.bridges AS
 SELECT
 		'way/' || osm_id::TEXT AS osm_id,
 		tags->'highway' AS highway,
@@ -57,11 +57,11 @@ WHERE
 	)
 	AND tags->'highway' NOT IN ('footway', 'path', 'proposed')
 ;
-CREATE INDEX idx_bridges_new_geom ON bridges_new USING GIST(geom);
-ANALYSE bridges_new;
+CREATE INDEX idx_bridges_geom ON newer.bridges USING GIST(geom);
+ANALYSE newer.bridges;
 
-DROP TABLE IF EXISTS under_bridges_new;
-CREATE TABLE under_bridges_new AS
+DROP TABLE IF EXISTS newer.under_bridges;
+CREATE TABLE newer.under_bridges AS
 SELECT DISTINCT ON (l.osm_id)
 		'way/' || l.osm_id::TEXT AS osm_id,
 		l.tags->'highway' AS highway,
@@ -81,5 +81,5 @@ WHERE
 	AND (NOT st_touches(l.way, b.geom))
 	AND l.tags->'highway' NOT IN ('footway', 'path', 'proposed', 'escalator', 'cycleway', 'construction', 'elevator', 'steps', 'raceway', 'bridleway')
 ;
-CREATE INDEX idx_under_bridges_new_geom ON under_bridges_new USING GIST(geom);
-ANALYSE under_bridges_new;
+CREATE INDEX idx_under_bridges_geom ON newer.under_bridges USING GIST(geom);
+ANALYSE newer.under_bridges;
