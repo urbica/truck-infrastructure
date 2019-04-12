@@ -17,8 +17,3 @@ ALTER TABLE public.under_bridges SET SCHEMA bak;
 ALTER TABLE newer.under_bridges SET SCHEMA public;
 
 END TRANSACTION;
-
-
-
-
-

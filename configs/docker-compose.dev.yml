@@ -27,7 +27,7 @@ services:
       - ../data/osm:/data
       - ../scripts/osm:/scripts
       - ../configs/osm2pgsql:/configs/osm2pgsql
-      - ./cron:/etc/cron.d
+      - ../configs/cron:/etc/cron.d
       - ../scripts/osm/docker-entry.sh:/docker-entry.sh
       - ../scripts/osm/docker-cmd.sh:/docker-cmd.sh
     networks:

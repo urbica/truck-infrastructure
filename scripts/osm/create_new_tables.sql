@@ -74,7 +74,7 @@ SELECT DISTINCT ON (l.osm_id)
 		l.way AS geom
 FROM
 	osm_line l,
-	bridges b
+	newer.bridges b
 WHERE
 		('way/' || l.osm_id::TEXT) != b.osm_id
 	AND st_intersects(l.way, b.geom)
