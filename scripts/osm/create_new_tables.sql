@@ -76,10 +76,76 @@ FROM
 	osm_line l,
 	newer.bridges b
 WHERE
-		('way/' || l.osm_id::TEXT) != b.osm_id
+	('way/' || l.osm_id::TEXT) != b.osm_id
 	AND st_intersects(l.way, b.geom)
 	AND (NOT st_touches(l.way, b.geom))
 	AND l.tags->'highway' NOT IN ('footway', 'path', 'proposed', 'escalator', 'cycleway', 'construction', 'elevator', 'steps', 'raceway', 'bridleway')
+	AND NOT (
+    	tags->'highway' IN ('motorway', 'motorway-link')
+    	AND tags->'ref' ~ '^I \d+'
+	)
+
 ;
 CREATE INDEX idx_under_bridges_geom ON newer.under_bridges USING GIST(geom);
 ANALYSE newer.under_bridges;
+
+DROP TABLE IF EXISTS newer.statistics;
+CREATE TABLE newer.statistics AS
+SELECT
+	'no_maxweight_mi' AS metric,
+	round(sum(st_length(st_transform(geom, 4326)::GEOGRAPHY)) / 1609.344) AS val
+FROM
+	bridges
+WHERE
+	maxweight IS NULL
+
+UNION ALL
+
+SELECT
+	'no_maxheight_mi' AS metric,
+	round(sum(st_length(st_transform(geom, 4326)::GEOGRAPHY)) / 1609.344) AS val
+FROM
+	under_bridges
+WHERE
+	maxheight IS NULL
+
+UNION ALL
+
+SELECT
+	'maxheight_tags' AS metric,
+	(
+		SELECT
+			count(*)
+		FROM
+			public.osm_line
+		WHERE
+				tags?'maxheight') +
+	(
+		SELECT
+			count(*)
+		FROM
+			public.osm_point
+		WHERE
+				tags?'maxheight'
+	) AS val
+
+UNION ALL
+
+SELECT
+	'maxweight_tags' AS metric,
+	(
+		SELECT
+			count(*)
+		FROM
+			public.osm_line
+		WHERE
+				tags?'maxweight'
+	) +
+	(
+		SELECT
+			count(*)
+		FROM
+			public.osm_point
+		WHERE
+				tags?'maxweight'
+	) AS val);

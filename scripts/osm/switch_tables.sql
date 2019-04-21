@@ -16,4 +16,8 @@ DROP TABLE IF EXISTS bak.under_bridges;
 ALTER TABLE public.under_bridges SET SCHEMA bak;
 ALTER TABLE newer.under_bridges SET SCHEMA public;
 
+DROP TABLE IF EXISTS bak.statistics;
+ALTER TABLE public.statistics SET SCHEMA bak;
+ALTER TABLE newer.statistics SET SCHEMA public;
+
 END TRANSACTION;

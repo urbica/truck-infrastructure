@@ -53,6 +53,19 @@ services:
     networks:
       - truck
 
+  truck-api:
+    container_name: truck-api
+    image: postgrest/postgrest:latest
+    restart: always
+    env_file:
+      - ../.env
+    ports:
+      - 45003:3000
+    networks:
+      - truck
+    depends_on:
+      - truck-db
+
 networks:
   truck:
     external: true
