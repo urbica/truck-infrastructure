@@ -148,4 +148,4 @@ SELECT
 			public.osm_point
 		WHERE
 				tags?'maxweight'
-	) AS val);
+	) AS val;
