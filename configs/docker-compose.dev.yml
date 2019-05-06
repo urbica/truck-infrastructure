@@ -19,7 +19,7 @@ services:
 
   truck-osm:
     container_name: truck-osm
-    image: registry.gitlab.com/urbica/mapbox/truck/docker-alpine-osm/alpine-osm:latest
+    image: bezdna/debian-osm:latest
     restart: unless-stopped
     env_file:
       - ../.env
@@ -27,20 +27,8 @@ services:
       - ../data/osm:/data
       - ../scripts/osm:/scripts
       - ../configs/osm2pgsql:/configs/osm2pgsql
-      - ../configs/cron:/etc/cron.d
-      - ../scripts/osm/docker-entry.sh:/docker-entry.sh
-      - ../scripts/osm/docker-cmd.sh:/docker-cmd.sh
-    networks:
-      - truck
-
-  truck-osmosis:
-    container_name: truck-osmosis
-    image:   yagajs/osmosis:latest
-    restart: unless-stopped
-    env_file:
-      - ../.env
-    volumes:
-      - ../data/osm:/data
+      - ./cron/crontab:/etc/cron.d/crontab
+      - ../data/cron/cron.log:/var/log/cron.log
     networks:
       - truck
 
