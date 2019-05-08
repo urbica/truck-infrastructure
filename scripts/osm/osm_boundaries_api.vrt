@@ -1,0 +1,13 @@
+<OGRVRTDataSource>
+  <OGRVRTLayer name="usa">
+    <SrcDataSource>/vsicurl_streaming/http://www.openstreetmap.org/api/0.6/relation/148838/full</SrcDataSource>
+    <LayerSRS>WGS84</LayerSRS>
+    <SrcSQL dialect="sqlite">
+      SELECT
+        148838 AS osm_id,
+        'USA' AS code,
+        st_union(geometry) AS geometry
+      FROM multipolygons
+    </SrcSQL>
+  </OGRVRTLayer>
+</OGRVRTDataSource>
