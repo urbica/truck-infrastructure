@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Route</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.css' type='text/css' />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src='//npmcdn.com/@turf/turf/turf.min.js'></script>
+    <style>
+        body { margin:0; padding:0; font-family: Arial, sans-serif; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #panel { width: 250px; font-size: 14px; padding: 10px; position:absolute; top:10px; left: 10px; z-index: 1000; background: #fff; }
+        #params-panel { display: flex; justify-content: space-between; width: 480px; font-size: 14px; padding: 10px; position:absolute; top:0px; right: 0px; z-index: 1000; background: #fff; }
+        .location { line-height: 22px; font-size: 12px; }
+        .legend { line-height: 22px; }
+        .key { max-width: 250px; overflow-x: auto;}
+        .params { max-height: 350px; overflow-y: auto; }
+        .input-params { line-height: 32px; display: flex; justify-content: space-between; }
+        .input-params div input { width: 60px; }
+        .action-btn { background: #09F; color: white; float: right; cursor: pointer; }
+        .system { cursor: pointer; border-bottom: 2px solid #fff; }
+        .system-selected { cursor: pointer; border-bottom: 2px solid #555;  }
+        input { width: 50px; }
+        #params-panel div { padding: 4px; }
+        #routes { border-bottom: 1px solid #ddd; }
+        .route { display: flex; justify-content: space-between; line-height: 32px; }
+        .layer { cursor: pointer; line-height: 32px; opacity: 0.4; }
+        .layer-visible { cursor: pointer; line-height: 32px; opacity: 1; }
+        .layer:hover { opacity: 0.6; }
+        .layer-bullet { border-radius: 8px; background: #888; width: 8px; height: 8px; display: inline-block; margin-right: 8px; }
+        .layer-label { display: inline-block; }
+        #o,#d { display: none; }
+        #layers { margin-top: 12px; }
+        #stats { margin-top: 12px; border-top: 1px solid #ddd; padding-top: 12px; }
+        .stat_item { line-height: 32px; opacity: 0.6; }
+        .stat_item_first { line-height: 32px; opacity: 0.6; margin-top: 12px; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<div id='params-panel'>
+  <div style="margin-top: 4px; margin-right: 12px; "><span class="system" id="metric">Metric</span><span>&nbsp;&nbsp;</span><span class="system" id="imperial">Imperial</span></div>
+  <div style="display: flex;">
+    <div>Max&nbsp;weight:&nbsp;</div><div><input type="text" value="11.8" id="maxweight-metric" /><input type="text" value="" id="maxweight-imperial" /></div>
+  </div>
+  <div style="display: flex;">
+    <div>Max&nbsp;height:&nbsp;</div><div><input type="text" value="4.11" id="maxheight-metric" /><input type="text" value="" id="maxheight-imperial" /></div>
+  </div>
+  <div class="action-btn" onclick="requestRoutes()">Reroute</div>
+</div>
+<div id='info'>
+  <div style="text-align: right;"><span class="close-btn">✕</span></div>
+  <div id='info-content'></div>
+</div>
+
+<div id='panel'>
+  <div id="routes">
+
+  </div>
+  <div id="layers">
+
+  </div>
+  <div id="stats">
+  </div>
+
+  <div><input type="text" id="o" /></div>
+  <div><input type="text" id="d" /></div>
+</div>
+
+<script src="app.js" type="text/javascript"></script>
+</body>
+</html>

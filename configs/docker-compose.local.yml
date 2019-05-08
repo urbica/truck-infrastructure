@@ -4,7 +4,7 @@ services:
 
   truck-db:
     container_name: truck-db
-    image: registry.gitlab.com/mofoyoda/docker-debian-gisdb/debian-gisdb:latest
+    image: bezdna/debian-gisdb:latest
     restart: unless-stopped
     env_file:
       - ../.env
@@ -27,8 +27,8 @@ services:
       - ../data/osm:/data
       - ../scripts/osm:/scripts
       - ../configs/osm2pgsql:/configs/osm2pgsql
-      - ./cron/crontab:/etc/cron.d/crontab
-      - ../data/cron/cron.log:/var/log/cron.log
+      - ../configs/cron/crontab:/etc/cron.d/crontab
+      - ../data/cron:/var/log
     networks:
       - truck
 
@@ -54,8 +54,18 @@ services:
     depends_on:
       - truck-db
 
+  truck-front:
+    container_name: truck-front
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./nginx:/etc/nginx
+      - ../scripts/html:/usr/share/nginx/html
+    ports:
+      - 40088:80
+    networks:
+      - truck
+
 networks:
   truck:
-    external: true
-  proxy:
-    external: true
+    name: truck
