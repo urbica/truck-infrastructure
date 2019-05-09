@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS newer;
+
 DROP TABLE IF EXISTS newer.truck_restrictions;
 CREATE TABLE newer.truck_restrictions AS
 SELECT

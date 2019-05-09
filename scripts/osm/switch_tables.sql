@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS bak;
+
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS bak.truck_restrictions;
