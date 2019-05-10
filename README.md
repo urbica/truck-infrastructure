@@ -18,6 +18,7 @@ touch data/cron/cron.log
 chown root:root data/cron/cron.log
 
 #First run manually
+docker-compose up -d --force-recreate truck-db
 docker-compose run --rm truck-osm /scripts/update-osm.sh
 
 #Then bring all containers up
