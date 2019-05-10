@@ -1,0 +1,1416 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2019-02-21T12:37:02Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/12179993",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "maxweight": "5",
+        "name": "Levick Street",
+        "source": "Bing"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.1009255,
+            40.0527073
+          ],
+          [
+            -75.1008134,
+            40.0526326
+          ]
+        ]
+      },
+      "id": "way/12179993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/12316431",
+        "bicycle": "no",
+        "bridge": "yes",
+        "bridge:name": "Uhlerstown-Frenchtown Bridge",
+        "foot": "no",
+        "highway": "secondary",
+        "horse": "no",
+        "lanes": "2",
+        "layer": "1",
+        "maxheight": "12'6\"",
+        "maxspeed": "15 mph",
+        "maxweight": "13.6",
+        "name": "Uhlerstown-Frenchtown Bridge",
+        "operator": "Delaware River Joint Toll Bridge Commission",
+        "sidewalk": "no",
+        "source:width": "Delaware River Joint Toll Bridge Commission web site",
+        "surface": "metal_grid",
+        "tiger:cfcc": "A41",
+        "tiger:name_base": "Bridge",
+        "tiger:name_type": "St",
+        "tiger:reviewed": "no",
+        "width": "16'6\""
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.0651062,
+            40.5261748
+          ],
+          [
+            -75.0667817,
+            40.526059
+          ]
+        ]
+      },
+      "id": "way/12316431"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/12335331",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "maxweight": "5",
+        "name": "Ashmead Road",
+        "source": "Bing"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.1009255,
+            40.0527073
+          ],
+          [
+            -75.1010398,
+            40.0527859
+          ]
+        ]
+      },
+      "id": "way/12335331"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/12373850",
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "maxspeed": "35 mph",
+        "maxweight": "29",
+        "maxweight:combination": "36.2",
+        "name": "West Valley Forge Road",
+        "old_ref:legislative": "46136",
+        "oneway": "no",
+        "ref": "PA 23",
+        "ref:penndot": "SR 0023",
+        "sidewalk": "no",
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.4074388,
+            40.1061063
+          ],
+          [
+            -75.407227,
+            40.1059853
+          ]
+        ]
+      },
+      "id": "way/12373850"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/14233689",
+        "highway": "tertiary",
+        "lanes": "2",
+        "maxweight": "12 Tonnes",
+        "name": "Dutton Mill Road",
+        "oneway": "no",
+        "surface": "asphalt",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Chester, PA",
+        "tiger:name_base": "Dutton Mill",
+        "tiger:name_type": "Rd",
+        "tiger:reviewed": "no"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5006465,
+            39.9651098
+          ],
+          [
+            -75.50075,
+            39.9652538
+          ],
+          [
+            -75.5016042,
+            39.9664427
+          ],
+          [
+            -75.501663,
+            39.966525
+          ],
+          [
+            -75.502336,
+            39.967491
+          ],
+          [
+            -75.502552,
+            39.96782
+          ],
+          [
+            -75.502717,
+            39.968055
+          ],
+          [
+            -75.504096,
+            39.97004
+          ],
+          [
+            -75.50467,
+            39.970792
+          ],
+          [
+            -75.505003,
+            39.97119
+          ],
+          [
+            -75.505144,
+            39.971336
+          ],
+          [
+            -75.505353,
+            39.971529
+          ],
+          [
+            -75.505657,
+            39.971751
+          ],
+          [
+            -75.505841,
+            39.971885
+          ],
+          [
+            -75.506275,
+            39.972218
+          ],
+          [
+            -75.506583,
+            39.972469
+          ],
+          [
+            -75.507009,
+            39.972804
+          ],
+          [
+            -75.507812,
+            39.973406
+          ],
+          [
+            -75.508114,
+            39.973604
+          ],
+          [
+            -75.508274,
+            39.973687
+          ],
+          [
+            -75.508438,
+            39.973754
+          ],
+          [
+            -75.508642,
+            39.973819
+          ],
+          [
+            -75.509378,
+            39.974009
+          ],
+          [
+            -75.50952,
+            39.97407
+          ],
+          [
+            -75.50966,
+            39.974149
+          ],
+          [
+            -75.509793,
+            39.974242
+          ],
+          [
+            -75.509925,
+            39.974353
+          ],
+          [
+            -75.510119,
+            39.974536
+          ],
+          [
+            -75.510711,
+            39.975288
+          ],
+          [
+            -75.510739,
+            39.975336
+          ],
+          [
+            -75.510869,
+            39.975515
+          ],
+          [
+            -75.511179,
+            39.975941
+          ],
+          [
+            -75.511586,
+            39.976501
+          ],
+          [
+            -75.512951,
+            39.978496
+          ],
+          [
+            -75.513383,
+            39.979138
+          ],
+          [
+            -75.513659,
+            39.979565
+          ],
+          [
+            -75.514073,
+            39.980243
+          ],
+          [
+            -75.514099,
+            39.980312
+          ],
+          [
+            -75.514121,
+            39.980371
+          ],
+          [
+            -75.514177,
+            39.980591
+          ],
+          [
+            -75.514225,
+            39.980717
+          ],
+          [
+            -75.51424,
+            39.980755
+          ],
+          [
+            -75.51425,
+            39.980836
+          ],
+          [
+            -75.514241,
+            39.980909
+          ],
+          [
+            -75.514216,
+            39.980981
+          ],
+          [
+            -75.514176,
+            39.981048
+          ],
+          [
+            -75.514109,
+            39.98112
+          ],
+          [
+            -75.514018,
+            39.98118
+          ]
+        ]
+      },
+      "id": "way/14233689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/27208970",
+        "bridge": "yes",
+        "highway": "footway",
+        "marked_trail": "white",
+        "maxweight": "1000lb",
+        "name": "Boy Scout Bridge"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.3899129,
+            40.0130165
+          ],
+          [
+            -75.3898129,
+            40.0131683
+          ]
+        ]
+      },
+      "id": "way/27208970"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/28038674",
+        "NJDOT_SRI": "00000012",
+        "bicycle": "no",
+        "bridge": "yes",
+        "bridge:name": "Uhlerstown-Frenchtown Bridge",
+        "foot": "no",
+        "hgv": "designated",
+        "hgv:state_network": "yes",
+        "highway": "secondary",
+        "horse": "no",
+        "lanes": "2",
+        "layer": "1",
+        "maxheight": "12'6\"",
+        "maxspeed": "15 mph",
+        "maxweight": "13.6",
+        "name": "Uhlerstown-Frenchtown Bridge",
+        "operator": "Delaware River Joint Toll Bridge Commission",
+        "ref": "NJ 12",
+        "sidewalk": "no",
+        "source:hgv:state_network": "NJDOT http://www.state.nj.us/transportation/about/rules/pdf/chapter32truckaccess.pdf",
+        "source:width": "Delaware River Joint Toll Bridge Commission web site",
+        "surface": "metal_grid",
+        "tiger:cfcc": "A39",
+        "tiger:county": "Hunterdon, NJ",
+        "tiger:name_base": "Bridge",
+        "tiger:name_base_1": "State Route 12",
+        "tiger:name_type": "St",
+        "tiger:reviewed": "no",
+        "width": "16'6\""
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.0633851,
+            40.5262959
+          ],
+          [
+            -75.0651062,
+            40.5261748
+          ]
+        ]
+      },
+      "id": "way/28038674"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/28039211",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "maxspeed": "35 mph",
+        "maxweight": "15",
+        "name": "Morris Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:name_base": "Morris",
+        "tiger:name_type": "Ave",
+        "tiger:reviewed": "no",
+        "tiger:zip_left": "19010",
+        "tiger:zip_right": "19010"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.3048202,
+            40.0305819
+          ],
+          [
+            -75.3047638,
+            40.0306788
+          ],
+          [
+            -75.3046741,
+            40.0307671
+          ]
+        ]
+      },
+      "id": "way/28039211"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/40692878",
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "6",
+        "name": "Contention Lane",
+        "oneway": "yes",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Chester, PA",
+        "tiger:name_base": "Contention",
+        "tiger:name_type": "Ln",
+        "tiger:zip_left": "19312",
+        "tiger:zip_right": "19312"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.4457494,
+            40.0680124
+          ],
+          [
+            -75.4458725,
+            40.0681697
+          ]
+        ]
+      },
+      "id": "way/40692878"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/45704455",
+        "bridge": "yes",
+        "highway": "trunk",
+        "lanes": "4",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "18 tons",
+        "name": "South Walnut Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Walnut",
+        "tiger:name_base_1": "United States Highway 13 (Bus)",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5513923,
+            39.7345116
+          ],
+          [
+            -75.5512897,
+            39.7347097
+          ],
+          [
+            -75.5511571,
+            39.734973
+          ]
+        ]
+      },
+      "id": "way/45704455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/49416613",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "maxweight": "12",
+        "name": "Old Forty Foot Road"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.3811215,
+            40.2293165
+          ],
+          [
+            -75.3806816,
+            40.2293227
+          ]
+        ]
+      },
+      "id": "way/49416613"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/54569180",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "maxspeed": "35 mph",
+        "maxweight": "15",
+        "name": "Morris Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:name_base": "Morris",
+        "tiger:name_type": "Ave",
+        "tiger:reviewed": "no",
+        "tiger:zip_left": "19010",
+        "tiger:zip_right": "19010"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.3029583,
+            40.0322908
+          ],
+          [
+            -75.3028055,
+            40.0324912
+          ]
+        ]
+      },
+      "id": "way/54569180"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/54610063",
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "maxheight": "8'5\"",
+        "maxweight": "4.5",
+        "name": "Bridge Street"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.2922758,
+            40.5161061
+          ],
+          [
+            -75.2925002,
+            40.5161143
+          ]
+        ]
+      },
+      "id": "way/54610063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55495678",
+        "bridge": "yes",
+        "heritage": "2",
+        "heritage:operator": "nrhp",
+        "highway": "tertiary",
+        "historic": "yes",
+        "layer": "1",
+        "maxheight": "2.85",
+        "maxweight": "12",
+        "name": "Pine Valley Covered Bridge",
+        "ref:nrhp": "80003437",
+        "start_date": "1842",
+        "wikidata": "Q7195406",
+        "wikipedia": "en:Pine Valley Covered Bridge"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.1872209,
+            40.305179
+          ],
+          [
+            -75.1874091,
+            40.3054673
+          ]
+        ]
+      },
+      "id": "way/55495678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/61234066",
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "18",
+        "name": "Thomas Road",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Chester, PA",
+        "tiger:name_base": "Thomas",
+        "tiger:name_type": "Rd",
+        "tiger:zip_left": "19087",
+        "tiger:zip_right": "19087"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.4274363,
+            40.0833435
+          ],
+          [
+            -75.4275222,
+            40.0834748
+          ]
+        ]
+      },
+      "id": "way/61234066"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/79157072",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "lanes": "2",
+        "layer": "1",
+        "maxspeed": "35 mph",
+        "maxweight": "14.5",
+        "name": "Mill Road",
+        "oneway": "no",
+        "sidewalk": "no",
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.8839441,
+            40.1536249
+          ],
+          [
+            -75.8840853,
+            40.1536502
+          ]
+        ]
+      },
+      "id": "way/79157072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/85932872",
+        "highway": "tertiary",
+        "maxweight": "10",
+        "name": "Snyder Road",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Berks, PA",
+        "tiger:name_base": "Snyder",
+        "tiger:name_type": "Rd",
+        "tiger:reviewed": "no",
+        "tiger:zip_left": "19605",
+        "tiger:zip_left_1": "19605",
+        "tiger:zip_left_2": "19605",
+        "tiger:zip_left_3": "19605"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.9369849,
+            40.427865
+          ],
+          [
+            -75.9368618,
+            40.4279021
+          ],
+          [
+            -75.9362965,
+            40.4280724
+          ],
+          [
+            -75.9356295,
+            40.4282476
+          ],
+          [
+            -75.935323,
+            40.428299
+          ],
+          [
+            -75.935174,
+            40.428343
+          ],
+          [
+            -75.934905,
+            40.428433
+          ],
+          [
+            -75.9347426,
+            40.42851
+          ],
+          [
+            -75.934147,
+            40.428833
+          ],
+          [
+            -75.9339671,
+            40.4289405
+          ],
+          [
+            -75.9318594,
+            40.4301031
+          ],
+          [
+            -75.930601,
+            40.430802
+          ],
+          [
+            -75.929933,
+            40.4311698
+          ],
+          [
+            -75.928979,
+            40.431695
+          ],
+          [
+            -75.928132,
+            40.432162
+          ],
+          [
+            -75.926486,
+            40.433067
+          ],
+          [
+            -75.925717,
+            40.43348
+          ],
+          [
+            -75.923063,
+            40.434901
+          ],
+          [
+            -75.921936,
+            40.435509
+          ],
+          [
+            -75.919534,
+            40.436818
+          ],
+          [
+            -75.917588,
+            40.437873
+          ],
+          [
+            -75.914415,
+            40.439576
+          ],
+          [
+            -75.913878,
+            40.439877
+          ],
+          [
+            -75.913476,
+            40.440082
+          ],
+          [
+            -75.911927,
+            40.440919
+          ]
+        ]
+      },
+      "id": "way/85932872"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/86913858",
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "maxweight": "12",
+        "name": "French Creek Road",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Chester, PA",
+        "tiger:name_base": "French Creek",
+        "tiger:name_type": "Rd",
+        "tiger:reviewed": "no"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.6015846,
+            40.151476
+          ],
+          [
+            -75.601859,
+            40.151735
+          ]
+        ]
+      },
+      "id": "way/86913858"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/101987640",
+        "bridge": "yes",
+        "highway": "trunk",
+        "lanes": "3",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "30 tons",
+        "name": "South Market Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21:A41",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Market:United States Highway 13 (Bus)",
+        "tiger:name_base_1": "Market",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St",
+        "tiger:zip_left": "19801"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5537443,
+            39.7368715
+          ],
+          [
+            -75.5539226,
+            39.7366178
+          ]
+        ]
+      },
+      "id": "way/101987640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/137692253",
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "maxweight": "8 tonnes",
+        "name": "West 7th Street",
+        "tiger:cfcc": "A41",
+        "tiger:name_base": "7th",
+        "tiger:name_direction_prefix": "W",
+        "tiger:name_type": "St",
+        "tiger:reviewed": "no"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.3630009,
+            39.8497938
+          ],
+          [
+            -75.3635067,
+            39.8495823
+          ]
+        ]
+      },
+      "id": "way/137692253"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/169049970",
+        "NHS": "yes",
+        "bridge": "yes",
+        "hgv": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "maxspeed": "45 mph",
+        "maxweight": "30",
+        "name": "DeKalb Pike",
+        "old_ref:legislative": "178",
+        "ref": "US 202",
+        "source:hgv": "PennDOT ftp://ftp.dot.state.pa.us/public/Bureaus/BOMO/MC/Publication411.pdf"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.2683193,
+            40.1877956
+          ],
+          [
+            -75.2681339,
+            40.1880041
+          ]
+        ]
+      },
+      "id": "way/169049970"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/185380729",
+        "highway": "tertiary",
+        "maxweight": "4",
+        "name": "Canal Road",
+        "name_1": "Old Georgetown Road",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Somerset, NJ",
+        "tiger:name_base": "Canal",
+        "tiger:name_type": "Rd"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.5856955,
+            40.456403
+          ],
+          [
+            -74.586586,
+            40.45555
+          ],
+          [
+            -74.587897,
+            40.454233
+          ],
+          [
+            -74.588453,
+            40.453635
+          ],
+          [
+            -74.588801,
+            40.453251
+          ],
+          [
+            -74.589181,
+            40.452826
+          ],
+          [
+            -74.589325,
+            40.452666
+          ],
+          [
+            -74.591049,
+            40.45074
+          ],
+          [
+            -74.59165,
+            40.450047
+          ],
+          [
+            -74.592198,
+            40.44934
+          ],
+          [
+            -74.592782,
+            40.448701
+          ],
+          [
+            -74.592848,
+            40.448656
+          ],
+          [
+            -74.593013,
+            40.448588
+          ],
+          [
+            -74.594024,
+            40.448256
+          ],
+          [
+            -74.595117,
+            40.44788
+          ],
+          [
+            -74.598278,
+            40.446723
+          ],
+          [
+            -74.599388,
+            40.446199
+          ],
+          [
+            -74.60122,
+            40.445366
+          ],
+          [
+            -74.601423,
+            40.445285
+          ],
+          [
+            -74.601715,
+            40.445208
+          ],
+          [
+            -74.601923,
+            40.445172
+          ],
+          [
+            -74.602307,
+            40.445131
+          ],
+          [
+            -74.603049,
+            40.44509
+          ],
+          [
+            -74.603439,
+            40.445033
+          ],
+          [
+            -74.603772,
+            40.444944
+          ],
+          [
+            -74.604317,
+            40.444747
+          ],
+          [
+            -74.605338,
+            40.444234
+          ],
+          [
+            -74.605626,
+            40.444044
+          ]
+        ]
+      },
+      "id": "way/185380729"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/273120386",
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "maxspeed": "40 mph",
+        "maxweight": "34",
+        "name": "Bridge Road",
+        "old_ref_legislative": "270",
+        "ref": "PA 113"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.406151,
+            40.2281846
+          ],
+          [
+            -75.4062433,
+            40.2280954
+          ]
+        ]
+      },
+      "id": "way/273120386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/318739239",
+        "bridge": "yes",
+        "highway": "trunk",
+        "lanes": "4",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "18 tons",
+        "name": "South Walnut Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Walnut",
+        "tiger:name_base_1": "United States Highway 13 (Bus)",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.550917,
+            39.7354688
+          ],
+          [
+            -75.5506576,
+            39.7359928
+          ]
+        ]
+      },
+      "id": "way/318739239"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/318739241",
+        "bridge": "yes",
+        "bridge:movable": "bascule",
+        "highway": "trunk",
+        "lanes": "4",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "18 tons",
+        "name": "South Walnut Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Walnut",
+        "tiger:name_base_1": "United States Highway 13 (Bus)",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5511571,
+            39.734973
+          ],
+          [
+            -75.550917,
+            39.7354688
+          ]
+        ]
+      },
+      "id": "way/318739241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/318739265",
+        "bridge": "movable",
+        "bridge:movable": "bascule",
+        "highway": "trunk",
+        "lanes": "3",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "30 tons",
+        "name": "South Market Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21:A41",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Market:United States Highway 13 (Bus)",
+        "tiger:name_base_1": "Market",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St",
+        "tiger:zip_left": "19801"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5539226,
+            39.7366178
+          ],
+          [
+            -75.5542671,
+            39.7361071
+          ]
+        ]
+      },
+      "id": "way/318739265"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/318739269",
+        "bridge": "yes",
+        "highway": "trunk",
+        "lanes": "3",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "30 tons",
+        "name": "South Market Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21:A41",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Market:United States Highway 13 (Bus)",
+        "tiger:name_base_1": "Market",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St",
+        "tiger:zip_left": "19801"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5542671,
+            39.7361071
+          ],
+          [
+            -75.5544053,
+            39.7359091
+          ]
+        ]
+      },
+      "id": "way/318739269"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/418389354",
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "maxweight": "13.6",
+        "name": "Stage Road",
+        "ref": "CR 654"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.4411718,
+            39.6233291
+          ],
+          [
+            -74.4409925,
+            39.6232437
+          ]
+        ]
+      },
+      "id": "way/418389354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/434921926",
+        "bridge": "yes",
+        "highway": "trunk",
+        "lanes": "4",
+        "layer": "1",
+        "maxspeed": "25 mph",
+        "maxweight": "18 tons",
+        "name": "South Walnut Street",
+        "oneway": "yes",
+        "ref": "US 13 Business",
+        "source": "survey",
+        "source_ref": "GPS",
+        "tiger:cfcc": "A21",
+        "tiger:county": "New Castle, DE",
+        "tiger:name_base": "Walnut",
+        "tiger:name_base_1": "United States Highway 13 (Bus)",
+        "tiger:name_direction_prefix": "S",
+        "tiger:name_type": "St"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.5515001,
+            39.7343522
+          ],
+          [
+            -75.5513923,
+            39.7345116
+          ]
+        ]
+      },
+      "id": "way/434921926"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/632933421",
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "maxweight": "30.8",
+        "name": "Cross Creek Lane"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.0736771,
+            40.5156864
+          ],
+          [
+            -75.0737758,
+            40.5156774
+          ]
+        ]
+      },
+      "id": "way/632933421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/653852200",
+        "cycleway": "yes",
+        "hgv": "no",
+        "highway": "tertiary",
+        "maxweight": "15",
+        "name": "Valley Creek Road",
+        "old_ref_legislative": "15093",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Chester, PA",
+        "tiger:name_base": "Valley Creek",
+        "tiger:name_type": "Rd",
+        "tiger:reviewed": "no",
+        "tiger:zip_left": "19380",
+        "tiger:zip_right": "19380"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.662945,
+            39.981844
+          ],
+          [
+            -75.662779,
+            39.98171
+          ],
+          [
+            -75.662385,
+            39.981382
+          ],
+          [
+            -75.662354,
+            39.981343
+          ],
+          [
+            -75.662335,
+            39.981305
+          ],
+          [
+            -75.662324,
+            39.98126
+          ],
+          [
+            -75.662324,
+            39.981216
+          ]
+        ]
+      },
+      "id": "way/653852200"
+    }
+  ]
+}

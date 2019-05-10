@@ -1,0 +1,301 @@
+{
+  "sources": [
+    { "id": "restrictions", "d": { "type": "vector", "url": "martin/public.truck_restrictions.json" } },
+    { "id": "restrictions_points", "d": { "type": "vector", "url": "martin/public.truck_restrictions_pnt.json" } },
+    { "id": "underpass", "d": { "type": "vector", "url": "martin/public.under_bridges.json" } },
+    { "id": "bridges", "d": { "type": "vector", "url": "martin/public.bridges.json" } }
+  ],
+  "menuLayers": [
+    {"id": "maxheight", "label": "'maxheight' limits", "visible": true, "color": "#4D4AE2", "layers": ["maxheight_lines", "maxheight_points", "maxheight_labels", "maxheight_labels_points"]},
+    {"id": "maxweight", "label": "'maxweight' limits", "visible": true, "color": "#3FBA1A", "layers": ["maxweight_lines", "maxweight_points", "maxweight_labels", "maxweight_labels_points"]},
+    {"id": "hgv_no", "label": "'hgv = no' limits", "visible": true, "color": "#D21229", "layers": ["hgv_no_lines", "hgv_no_points"]},
+    {"id": "bridges_maxweight", "label": "bridges with maxweight", "visible": false, "color": "#BD10E0", "layers": ["bridges_maxweight"]},
+    {"id": "bridges_no_maxweight", "label": "bridges without maxweight", "visible": false, "color": "#F5A623", "layers": ["bridges_no_maxweight"]},
+    {"id": "underpasses_maxheight", "label": "underpasses with maxheight", "visible": false, "color": "#2C8DFF", "layers": ["underpasses_maxheight"]},
+    {"id": "underpasses_no_maxheight", "label": "underpasses without maxheight", "visible": false, "color": "#C6F20C", "layers": ["underpasses_no_maxheight"]}
+  ],
+  "layers": [
+    {
+      "id": "maxheight_lines",
+      "source": "restrictions",
+      "source-layer": "public.truck_restrictions",
+      "type": "line",
+      "filter": ["all", ["==", ["geometry-type"], "LineString"], ["!=", ["get", "maxheight"], null]],
+      "paint": {
+        "line-color": "#3751D5",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1,
+          10, 2.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "maxweight_lines",
+      "source": "restrictions",
+      "source-layer": "public.truck_restrictions",
+      "type": "line",
+      "filter": ["all", ["==", ["geometry-type"], "LineString"], ["!=", ["get", "maxweight"], null]],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#45A86E",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1,
+          10, 2.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "hgv_no_lines",
+      "source": "restrictions",
+      "source-layer": "public.truck_restrictions",
+      "type": "line",
+      "filter": ["all", ["==", ["geometry-type"], "LineString"], ["==", ["get", "hgv"], "no"]],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#B43434",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1,
+          10, 2.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "maxheight_points",
+      "source": "restrictions_points",
+      "source-layer": "public.truck_restrictions_pnt",
+      "type": "circle",
+      "filter": ["all", ["==", ["geometry-type"], "Point"], ["!=", ["get", "maxheight"], null]],
+      "paint": {
+        "circle-color": "#3751D5",
+        "circle-radius": 3,
+        "circle-opacity": 0.8
+      }
+    },
+    {
+      "id": "maxweight_points",
+      "source": "restrictions_points",
+      "source-layer": "public.truck_restrictions_pnt",
+      "type": "circle",
+      "filter": ["all", ["==", ["geometry-type"], "Point"], ["!=", ["get", "maxweight"], null]],
+      "paint": {
+        "circle-color": "#45A86E",
+        "circle-radius": 3,
+        "circle-opacity": 0.8
+      }
+    },
+    {
+      "id": "hgv_no_points",
+      "source": "restrictions_points",
+      "source-layer": "public.truck_restrictions_pnt",
+      "type": "circle",
+      "filter": ["all", ["==", ["geometry-type"], "Point"], ["==", ["get", "hgv"], "no"]],
+      "paint": {
+        "circle-color": "#B43434",
+        "circle-radius": 3,
+        "circle-opacity": 0.8
+      }
+    },
+    {
+      "id": "maxweight_labels",
+      "source": "restrictions",
+      "source-layer": "public.truck_restrictions",
+      "type": "symbol",
+      "filter": ["!=", ["get", "maxweight"], null],
+      "layout": {
+        "text-field": ["get", "maxweight"],
+        "text-offset": [0,1],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          11, 10,
+          18, 12
+        ]
+      },
+      "paint": {
+        "text-color": "#45A86E",
+        "text-opacity": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          10, 0,
+          11, 1
+        ]
+      }
+    },
+    {
+      "id": "maxweight_labels_points",
+      "source": "restrictions_points",
+      "source-layer": "public.truck_restrictions_pnt",
+      "type": "symbol",
+      "filter": ["!=", ["get", "maxweight"], null],
+      "layout": {
+        "text-field": ["get", "maxweight"],
+        "text-offset": [0,1],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          11, 10,
+          18, 12
+        ]
+      },
+      "paint": {
+        "text-color": "#45A86E",
+        "text-opacity": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          10, 0,
+          11, 1
+        ]
+      }
+    },
+    {
+      "id": "maxheight_labels",
+      "source": "restrictions",
+      "source-layer": "public.truck_restrictions",
+      "filter": ["!=", ["get", "maxheight"], null],
+      "type": "symbol",
+      "layout": {
+        "text-field": ["get", "maxheight"],
+        "text-offset": [0,1],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          11, 10,
+          18, 12
+        ]
+      },
+      "paint": {
+        "text-color": "#3751D5",
+        "text-opacity": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          10, 0,
+          11, 1
+        ]
+      }
+    },
+    {
+      "id": "maxheight_labels_points",
+      "source": "restrictions_points",
+      "source-layer": "public.truck_restrictions_pnt",
+      "filter": ["!=", ["get", "maxheight"], null],
+      "type": "symbol",
+      "layout": {
+        "text-field": ["get", "maxheight"],
+        "text-offset": [0,1],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          11, 10,
+          18, 12
+        ]
+      },
+      "paint": {
+        "text-color": "#3751D5",
+        "text-opacity": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          10, 0,
+          11, 1
+        ]
+      }
+    },
+    {
+      "id": "bridges_maxweight",
+      "source": "bridges",
+      "source-layer": "public.bridges",
+      "type": "line",
+      "filter": ["!=", ["get", "maxweight"], null],
+      "paint": {
+        "line-color": "#BD10E0",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1.7,
+          10, 3.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "bridges_no_maxweight",
+      "source": "bridges",
+      "source-layer": "public.bridges",
+      "type": "line",
+      "filter": ["==", ["get", "maxweight"], null],
+      "paint": {
+        "line-color": "#F5A623",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1.7,
+          10, 3.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "underpasses_maxheight",
+      "source": "underpass",
+      "source-layer": "public.under_bridges",
+      "type": "line",
+      "filter": ["!=", ["get", "maxheight"], null],
+      "paint": {
+        "line-color": "#2C8DFF",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1.7,
+          10, 3.3
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "underpasses_no_maxheight",
+      "source": "underpass",
+      "source-layer": "public.under_bridges",
+      "type": "line",
+      "filter": ["==", ["get", "maxheight"], null],
+      "paint": {
+        "line-color": "#AED700",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.15],
+          ["zoom"],
+          7, 1.7,
+          10, 3.3
+        ],
+        "line-opacity": 0.6
+      }
+    }
+  ]
+}

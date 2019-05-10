@@ -2,4 +2,4 @@
 .env
 *.iml
 .idea/
-data/
+/data/
