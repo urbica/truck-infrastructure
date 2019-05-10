@@ -4,6 +4,10 @@ echo ${POSTGRES_HOST}:${POSTGRES_PORT}:${POSTGRES_DB}:${POSTGRES_USER}:${POSTGRE
 chmod 600 /.pgpass
 export PGPASSFILE='/.pgpass'
 
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -U ${POSTGRES_USER} -d ${POSTGRES_DB} -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -U ${POSTGRES_USER} -d ${POSTGRES_DB} -c 'CREATE EXTENSION IF NOT EXISTS hstore;'
+psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -U ${POSTGRES_USER} -d ${POSTGRES_DB} -f /scripts/function_parse_osm_layer.sql
+
 echo "Renaming ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} to ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ..."
 mv ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS}
 echo "Renamed"
@@ -15,10 +19,6 @@ echo "Renamed"
 echo "Updating ${OSM_DATA_PATH}/${OSM_PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ..."
 osmupdate -v ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT}
 echo "Updated"
-
-#echo "Applying ${OSM_DATA_PATH}/${OSM_PLANET_DIFF} to ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ..."
-#osmium apply-changes -v -o ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ${OSM_DATA_PATH}/${OSM_PLANET_PREVIOUS} ${OSM_DATA_PATH}/${OSM_PLANET_DIFF}
-#echo "Applied"
 
 echo "Extracting ${OSM_DATA_PATH}/${OSM_USA} from ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT} ..."
 osmium extract -v --overwrite -s smart -p ${OSMIUM_BOUNDARY_PATH}/${OSMIUM_BOUNDARY_FILE} -o ${OSM_DATA_PATH}/${OSM_USA} ${OSM_DATA_PATH}/${OSM_PLANET_CURRENT}

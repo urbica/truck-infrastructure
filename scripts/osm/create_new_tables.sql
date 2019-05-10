@@ -55,7 +55,7 @@ WHERE
 	(
 		tags->'bridge'='yes'
 		OR
-		util.parse_osm_layer(tags->'layer', tags->'level') > 1
+		parse_osm_layer(tags->'layer', tags->'level') > 1
 	)
 	AND tags->'highway' NOT IN ('footway', 'path', 'proposed')
 ;

@@ -4,7 +4,7 @@ services:
 
   truck-db:
     container_name: truck-db
-    image: bezdna/debian-gisdb:latest
+    image: mdillon/postgis
     restart: unless-stopped
     env_file:
       - ../.env
