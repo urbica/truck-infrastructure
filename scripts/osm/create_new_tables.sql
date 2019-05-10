@@ -97,7 +97,7 @@ SELECT
 	'no_maxweight_mi' AS metric,
 	round(sum(st_length(st_transform(geom, 4326)::GEOGRAPHY)) / 1609.344) AS val
 FROM
-	bridges
+	newer.bridges
 WHERE
 	maxweight IS NULL
 
@@ -107,7 +107,7 @@ SELECT
 	'no_maxheight_mi' AS metric,
 	round(sum(st_length(st_transform(geom, 4326)::GEOGRAPHY)) / 1609.344) AS val
 FROM
-	under_bridges
+	newer.under_bridges
 WHERE
 	maxheight IS NULL
 
